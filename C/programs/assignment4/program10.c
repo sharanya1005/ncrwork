@@ -9,23 +9,28 @@ scanf("%s",a);
 printf("Enter a character: ");
 scanf("%s",&b);
 delete(a, b);
+printf("%s",a);
+return 0;
 }
 
 int delete(char a[],char b)
 {
-int i,j;
-for(i=0;i<strlen(a);i++)
+int i=0,j,k,f;
+for(k=0;k<strlen(a)+1;k++)
 {
 if(a[i]==b)
 {
-for(j=i+1;j<strlen(a);j++)
-{
-a[i]=a[j];
-j++;
+	f=i;
+	for(j=i+1;j<strlen(a);j++)
+	{
+		a[i]=a[j];
+		i++;
+	}
+	a[i] ='\0';
+	i=f;
 }
-a[i] ='\0';
+else
+i++;
 }
-}
-printf("new string: %s",a);
 return 0;
 }

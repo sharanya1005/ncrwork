@@ -1,5 +1,5 @@
 ﻿#include<stdio.h>
-#include<ctype.h>
+#include<string.h>
 int main()
 {
 int n,i,len,j,x,y,k;

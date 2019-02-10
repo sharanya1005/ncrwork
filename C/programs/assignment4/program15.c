@@ -24,7 +24,11 @@ printf("Enter string s5: \n");
 scanf("%s",s5);
 printf("Enter string s6: \n");
 scanf("%s",s6);
-strcmp(s5,s6);
+int k=strcmp(s5, s6);
+	if (k == 0)
+		printf("strings are equal\n");
+	else
+		printf("strings are not equal\n");
 printf("Enter string s7: \n");
 scanf("%s",s7);
 strrev(s7);

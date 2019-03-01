@@ -1,0 +1,6 @@
+﻿  project7.cpp
+c:\users\esdm\desktop\new folder\windows\windows\project7\project7.cpp(42): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'HANDLE'
+c:\users\esdm\desktop\new folder\windows\windows\project7\project7.cpp(63): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'HANDLE'
+c:\users\esdm\desktop\new folder\windows\windows\project7\project7.cpp(10): warning C4101: 'hproc': unreferenced local variable
+  Project7.vcxproj -> C:\Users\esdm\Desktop\New folder\windows\windows\Debug\Project7.exe
+  Project7.vcxproj -> C:\Users\esdm\Desktop\New folder\windows\windows\Debug\Project7.pdb (Partial PDB)

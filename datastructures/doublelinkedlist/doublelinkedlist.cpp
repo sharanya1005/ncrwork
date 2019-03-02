@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdio>
 using namespace std;
 
 struct node
@@ -27,7 +28,7 @@ public:
 	void travel_forward();
 	void travel_backward();
 
-	friend void print(struct node *);
+	friend void print(struct node *curr);
 
 	void reverse();
 	~doublelist();
@@ -81,16 +82,17 @@ void doublelist::insert_after(int sele, int ele)
 			struct node *temp;
 			temp = new node;
 			temp->data = ele;
+			temp->prev = curr;
 			temp->next = curr->next;
 			if (curr->next != NULL)
 				curr->next->prev = temp;
 			curr->next = temp;
 		}
 		else
-			cout << "Element not found";
+			cout << "Element not found\n";
 	}
 	else
-		cout << "List is empty";
+		cout << "List is empty\n";
 }
 
 void doublelist::insert_before(int sele, int ele)
@@ -114,10 +116,10 @@ void doublelist::insert_before(int sele, int ele)
 			curr->prev = temp;
 		}
 		else
-			cout << "Element not found";
+			cout << "Element not found\n";
 	}
 	else
-		cout << "List is empty";
+		cout << "List is empty\n";
 }
 
 int doublelist::delete_first()
@@ -134,7 +136,7 @@ int doublelist::delete_first()
 		delete temp;
 	}
 	else
-		cout << "List is empty";
+		cout << "List is empty\n";
 	return x;
 }
 
@@ -155,7 +157,7 @@ int doublelist::delete_last()
 		delete curr;
 	}
 	else
-		cout << "List is empty";
+		cout << "List is empty\n";
 	return x;
 }
 
@@ -170,27 +172,28 @@ void doublelist::delete_spec(int ele)
 		if (curr != NULL)
 		{
 			if (curr->prev != NULL)
-				curr->next->prev = curr->prev;
+				curr->prev->next = curr->next;
 			else
-				curr = curr->next;
+				start = curr->next;
 			if (curr->next != NULL)
 				curr->next->prev = curr->prev;
 			delete curr;
 		}
 		else
-			cout << "Element not found";
+			cout << "Element not found\n";
 	}
 	else
-		cout << "List is empty";
+		cout << "List is empty\n";
 }
 
 void doublelist::travel_forward()
 {
 	struct node *curr;
 	curr = start;
+	cout << "Travel forward output is: " << endl;
 	while (curr != NULL)
 	{
-		cout << curr->data;
+		cout << curr->data<<" ";
 		curr = curr->next;
 	}
 	cout << endl;
@@ -201,13 +204,15 @@ void doublelist::travel_backward()
 	struct node *curr=NULL;
 	if (start != NULL)
 		curr = start;
-	if (curr->next != NULL)
+	while (curr->next != NULL)
 		curr = curr->next;
+	cout << "Travel backward output is: "<<endl;
 	while (curr != NULL)
 	{
-		cout << curr->data;
+		cout << curr->data<<" ";
 		curr = curr->prev;
 	}
+	cout << endl;
 }
 
 void doublelist::reverse()
@@ -218,9 +223,10 @@ void doublelist::reverse()
 		curr = start;
 		while (curr->next != NULL)
 			curr = curr->next;
+		cout << "Reverse output is: \n";
 		while (curr != NULL)
 		{
-			cout << curr->data;
+			cout << curr->data<<" ";
 			curr = curr->prev;
 		}
 	}
@@ -239,21 +245,62 @@ doublelist::~doublelist()
 
 int main()
 {
+	int operation, first, last, node, element;
 	doublelist d;
-	d.insert_first(10);
-	d.insert_first(22);
-	d.insert_first(44);
-	d.insert_first(76);
-	d.delete_spec(22);
-	//d.insert_last(4);
-	d.travel_forward();
-	d.delete_first();
-	d.travel_forward();
-	d.insert_before(10, 82);
-	d.delete_last();
-	d.insert_after(44, 98);
-	d.travel_forward();
-	d.travel_backward();
-	d.reverse();
-	d.travel_forward();
+	cout << "Select the operation that needs to be performed\n";
+	cout << "1.Insert first \t 2. Insert last\t 3. Insert after certain node\t";
+	cout << "4. Insert before certain node\t";
+	cout << "5.Delete first\t 6. Delete last \t7. Delete specific node\t";
+	cout << "8. Travel forward \t 9. Travel backward \t 10. reverse\n";
+	cin >> operation;
+	while (operation <= 10 && operation != 0)
+	{
+		switch (operation)
+		{
+		case 1: cout << "Enter the element to insert at first: ";
+			cin >> first;
+			d.insert_first(first);
+			break;
+		case 2:cout << "Enter the element to insert at last: ";
+			cin >> last;
+			d.insert_last(last);
+			break;
+		case 3:cout << "Enter the node: ";
+			cin >> node;
+			cout << "Enter the element to insert after: " << node << endl;
+			cin >> element;
+			d.insert_after(node, element);
+			break;
+		case 4: cout << "Enter the node: ";
+			cin >> node;
+			cout << "Enter the element to insert before: " << node << endl;
+			cin >> element;
+			d.insert_before(node, element);
+			break;
+		case 5:
+			cout << "An element deleted from first is: " << d.delete_first() << endl;
+			break;
+		case 6:
+			cout << "An element deleted from last is : " << d.delete_last() << endl;
+			break;
+		case 7:
+			cout << "Enter the element which you want to delete from the list: ";
+			cin >> element;
+			d.delete_spec(element);
+			break;
+		case 8:
+			d.travel_forward();
+			break;
+		case 9:
+			d.travel_backward();
+			break;
+		case 10:
+			d.reverse();
+			break;
+		}
+		cin >> operation;
+
+	}
+	cout << "Enter a valid input\n";
+	getchar();
 }

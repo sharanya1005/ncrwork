@@ -1,4 +1,5 @@
-﻿﻿
+﻿
+
 #include<iostream>
 using namespace std;
 struct __stack__
@@ -111,7 +112,7 @@ int main()
 	for (int i = 0; i < len; i++)
 	{
 		char ch = in[i];
-		if ((ch >= 'a'&&ch <= 'z') || (ch >= 'A'&&ch <= 'B'))
+		if ((ch >= 'a'&&ch <= 'z') || (ch >= 'A'&&ch <= 'Z'))
 		{
 			op[j] = ch;
 			j++;

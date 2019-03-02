@@ -314,6 +314,7 @@ int main()
 		}
 		cin >> operation;
 	}
+	cout<<"Enter a valid input\n"
 
 	getchar();
 }

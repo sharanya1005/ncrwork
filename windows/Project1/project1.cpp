@@ -5,11 +5,12 @@
 void main()
 {
 	char a1 = 'A';
-	CHAR a2 = 'P';
+	CHAR a2 = 'P';//ssffe
 	wchar_t a3 = L'P';
 	WCHAR a4 = L'L';
 	TCHAR tc = TEXT('E');
-	CHAR ArrayANSI[] = "sharanya";
+	CHAR ArrayANSI[];
+	cin >> ArrayANSI;
 	WCHAR ArrayWIDE[] = L"gandla";
 	printf("char: %c\n CHAR: %c\n wchar_t: %C\n WCHAR: %C\n TCHAR:%c\n ArrayANSI: %s\n ArrayWIDE : %S\n", a1, a2, a3, a4, tc, ArrayANSI, ArrayWIDE);
 

@@ -1,0 +1,9 @@
+﻿  project8.cpp
+c:\users\esdm\desktop\new folder\windows\windows\project8\project8.cpp(42): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'HANDLE'
+c:\users\esdm\desktop\new folder\windows\windows\project8\project8.cpp(63): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'HANDLE'
+c:\users\esdm\desktop\new folder\windows\windows\project8\project8.cpp(70): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'DWORD (__stdcall *)(HANDLE)'
+c:\users\esdm\desktop\new folder\windows\windows\project8\project8.cpp(71): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'DWORD (__stdcall *)(HANDLE)'
+c:\users\esdm\desktop\new folder\windows\windows\project8\project8.cpp(72): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'DWORD (__stdcall *)(HANDLE)'
+c:\users\esdm\desktop\new folder\windows\windows\project8\project8.cpp(10): warning C4101: 'hproc': unreferenced local variable
+  Project8.vcxproj -> C:\Users\esdm\Desktop\New folder\windows\windows\Debug\Project8.exe
+  Project8.vcxproj -> C:\Users\esdm\Desktop\New folder\windows\windows\Debug\Project8.pdb (Partial PDB)

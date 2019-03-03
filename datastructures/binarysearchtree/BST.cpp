@@ -7,15 +7,14 @@ struct node
 	struct node *left;
 	struct node *right;
 };
-
 class binarysearchtree
 {
 	struct node *start;
 public:
 	binarysearchtree();
-	node* insert(int, node *);
-
-	void delete_element(int);
+	void insert(int);
+	void delete_element(int, node *);
+	void delete_node(node *);
 	void inorder();
 	void preorder();
 	void postorder();
@@ -84,7 +83,7 @@ int binarysearchtree::height(struct node *current)
 		return ( max (height(current->left), height(current->right)) + 1);
 }
 
-void print_inorder(struct node *current)
+void binarysearchtree::print_inorder(struct node *current)
 {
 	if (current != NULL)
 	{
@@ -94,7 +93,7 @@ void print_inorder(struct node *current)
 	}
 }
 
-void print_preorder(struct node *current)
+void binarysearchtree::print_preorder(struct node *current)
 {
 	if (current != NULL)
 	{
@@ -104,7 +103,7 @@ void print_preorder(struct node *current)
 	}
 }
 
-void print_postorder(struct node *current)
+void binarysearchtree::print_postorder(struct node *current)
 {
 	if (current != NULL)
 	{
@@ -131,15 +130,13 @@ void binarysearchtree::postorder()
 		print_postorder(start);
 }
 
-
-
 binarysearchtree::~binarysearchtree()
 {
 	if (start != NULL)
 		delete_node(start);
 }
 
-delete_node(node *current)
+void binarysearchtree::delete_node(node *current)
 {
 	if (current != NULL)
 	{
@@ -151,6 +148,7 @@ delete_node(node *current)
 
 void binarysearchtree::insert(int element)
 {
+	struct node *current;
 	if (current == NULL)
 	{
 		struct node *temp;
@@ -163,9 +161,9 @@ void binarysearchtree::insert(int element)
 	else
 	{
 		if (element < current->data)
-			current->left = insert(element, current->left);
+			current->left = insert(element);
 		else
-			current->right = insert(element, current->right);
+			current->right = insert(element);
 		return current;
 	}
 }
@@ -175,10 +173,10 @@ void binarysearchtree::delete_element(int element, node *current)
 	if (current != NULL)
 	{
 		if (element > current->data)
-			current->right = delete_element(element, current_right);
+			current->right = delete_element(element, current->right);
 		else
 			if (element < current->data)
-				current->left = delete_element(element, current_left);
+				current->left = delete_element(element, current->left);
 			else
 			{
 				if (current->left != NULL && current->right != NULL)
@@ -189,7 +187,7 @@ void binarysearchtree::delete_element(int element, node *current)
 				else
 				{
 					struct node *temp;
-					temp = curr;
+					temp = current;
 					if (current->left == NULL)
 						current = current->right;
 					else
@@ -199,14 +197,72 @@ void binarysearchtree::delete_element(int element, node *current)
 				return current;
 			}
 	}
+}
 
-	void main()
+
+	int main()
 	{
 		binarysearchtree b;
-		int noofelements;
-		cout << "enter the no. of elements in a tree: ";
+		int noofelements, operation, insert, dele;
+		cout << "Enter the no. of elements in a tree: ";
 		cin >> noofelements;
+		cout << "The elements are: ";
 		for (i = 0; i < noofelements; i++)
 		{
 			cin >> a[i];
 		}
+		cout << "choose the operation you want to perform.\n";
+		cout << "1. Insert  2. Delete_element 3. Inorder  4. Preorder\n";
+		cout << "5. Postorder 6. findmax  7. find min 8. height  9. no.of leafnodes 10. no. of non leaf nodes";
+		cin >> operation;
+
+		while (operation <= 10 && operation != 0)
+		{
+			switch (operation)
+			{
+			case 1:
+				cout << "Enter the element you want to insert: ";
+				cin >> insert;
+				b.insert(insert);
+				cout << endl;
+				break;
+			case 2:
+				cout << "Enter the element you want to delete: ";
+				cin >> dele;
+				b.delete_element(dele);
+				cout << endl;
+				break;
+			case 3:
+				b.inorder();
+				break;
+			case 4:
+				b.preorder();
+				break;
+			case5:
+				b.postorder();
+				break;
+			case 6:
+				cout << "Enter the element ";
+				break;
+			case 7:
+				cout << " ";
+				break;
+
+			case 8:
+				cout << "Enter the element for which you want to find height: ";
+				//cin >> 
+				//b.height();
+				cout << endl;
+				break;
+
+			case 9:
+				cout << "Number of leaf nodes in a given tree are: " << b.noofleafnodes() << endl;
+				break;
+			case 10:
+				cout << "Number of non leaf nodes in a given tree are: " << b.noofnonleafnodes() << endl;
+				break;
+
+			}
+			cin >> operation;
+		}
+	}

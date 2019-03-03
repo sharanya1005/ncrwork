@@ -1,5 +1,4 @@
 ﻿  Source.cpp
-c:\users\esdm\source\repos\sharanya1005\ncrwork\windows\project1\source.cpp(18): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\esdm\source\repos\sharanya1005\ncrwork\windows\project1\source.cpp(24): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Project1.vcxproj -> C:\Users\esdm\Source\Repos\sharanya1005\ncrwork\windows\x64\Debug\Project1.exe
-  Project1.vcxproj -> C:\Users\esdm\Source\Repos\sharanya1005\ncrwork\windows\x64\Debug\Project1.pdb (Partial PDB)
+c:\users\me\source\repos\sharanya1005\ncrwork\windows\project1\source.cpp(18): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\me\source\repos\sharanya1005\ncrwork\windows\project1\source.cpp(24): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  Project1.vcxproj -> C:\Users\Me\source\repos\sharanya1005\ncrwork\windows\x64\Debug\Project1.exe

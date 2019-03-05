@@ -13,7 +13,7 @@ DWORD WINAPI WordCount(PVOID pvParam)
 	printf("Counting Words\n");
 
 	//changes event state to signaled
-	SetEvent(g_hEvent);//other threads won't become scheduled
+	//SetEvent(g_hEvent);//other threads won't become scheduled
 
 	//changes event to non-signaled state
 	//ResetEvent(g_hEvent);
@@ -30,7 +30,7 @@ DWORD WINAPI CheckSpellings(PVOID pvParam)
 	printf("Checking Spellings\n");
 
 	//changes event state to signaled
-	SetEvent(g_hEvent);//other threads won't become scheduled
+	//SetEvent(g_hEvent);//other threads won't become scheduled
 
 	return 1;
 }
@@ -44,7 +44,7 @@ DWORD WINAPI GrammarCheck(PVOID pvParam)
 	printf("Checking Grammar\n");
 
 	//changes event state to signaled
-	SetEvent(g_hEvent);//other threads won't become scheduled
+	//SetEvent(g_hEvent);//other threads won't become scheduled
 
 	return 1;
 }
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 	//if you create auto-reset event, the system allows 
 	//only 1 of 3 threads to become schedulable after SetEvent
 	g_hEvent = CreateEvent(NULL,
-		FALSE,//manual reset event will be created
+		TRUE,//manual reset event will be created
 		FALSE,//initial state non-signaled
 		NULL);
 

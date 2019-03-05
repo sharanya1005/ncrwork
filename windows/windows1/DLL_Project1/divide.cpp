@@ -1,5 +1,5 @@
 #include<windows.h>
-#include "header.h"
+
 #include "mylib.h"
 
 float divide(int n_op1, int n_op2)

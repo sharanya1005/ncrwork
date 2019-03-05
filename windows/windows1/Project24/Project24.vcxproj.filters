@@ -15,12 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mylib.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="mylib.cpp">
+    <ClCompile Include="project24.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

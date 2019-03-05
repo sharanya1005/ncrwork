@@ -1,5 +1,5 @@
 #include<windows.h>
-#include "header.h"
+
 #include "mylib.h"
 
 int add(int n_op1, int n_op2)

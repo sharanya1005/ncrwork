@@ -1,5 +1,4 @@
 #include<windows.h>
-#include "header.h"
 #include "mylib.h"
 
 int sub(int n_op1, int n_op2)

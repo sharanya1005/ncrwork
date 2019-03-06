@@ -28,7 +28,7 @@ char* stringconcat(char* dest, const char*source)//function to concatenate two s
 	return dest;
 }
 
-char* stringcopy(char* dest, const char*source)
+char* stringcopy(char* dest, const char*source)//function to copy from one string to other
 {
 	while (*dest = *source)
 	{
@@ -42,7 +42,7 @@ char* stringcopy(char* dest, const char*source)
 	return dest;
 }
 
-int stringcompare(char * dest, const char* source)
+int stringcompare(char * dest, const char* source)//function to compare two strings
 {
 	while (*dest == *source)
 	{
@@ -62,7 +62,7 @@ int stringcompare(char * dest, const char* source)
 		return -1;
 }
 
-char* stringreverse(char *str)
+char* stringreverse(char *str)//function to reverse a string
 {
 	char *ptr1, *ptr2, temp;
 	for (ptr1 = str, ptr2 = str + stringlength(str) - 1; ptr1 < ptr2; ptr1++, ptr2--)

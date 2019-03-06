@@ -2,55 +2,79 @@
 #include <string.h>
 
 
-char *stringcopy(char *str1, const char *str2)
+int stringlength(char *string)//function to find the length of the given string
 {
-	char *dest = str1;
-	const char *src = str2;
-	while ((*dest++ = *src++) != '\0');
-	return str1;
-}
-
-char *stringconcat(char *str1, const char *str2)
-{
-	char *s = str1;
-	while (*s != '\0')
-		s++;
-	stringcopy(s, str2);
-	return str1;
-}
-
-int stringlength(const char *str)
-{
-	const char *s = str;
-	while (*s != '\0')
-		s++;
-	return (s - str);
-}
-
-int stringcomp(const char *str1, const char *str2)
-{
-	unsigned char unch1, unch2;
-	while (*str1 != '\0' && *str1 == *str2)
+	char *str = string;
+	while (*str != '\0')
 	{
-		str1++;
-		str2++;
+		str++;
 	}
-	unch1 = (*(unsigned char *)str1);
-	unch2 = (*(unsigned char *)str2);
-	return ((unch1 < unch2) ? -1 : (unch1 > unch2));
+	return (str - string);
 }
 
-char *stringreverse(char *str)
+char* stringconcat(char* dest, const char*source)//function to concatenate two strings
 {
-	char *p1, *p2, temp;
-	for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2)
+	while (*dest != '\0')
 	{
-		temp = *p1;
-		*p1 = *p2;
-		*p2 = temp;
+		dest++;
+	}
+	while ((*dest = *source) != '\0')
+	{
+		dest++;
+		source++;
+	}
+
+	*dest = '\0';
+
+	return dest;
+}
+
+char* stringcopy(char* dest, const char*source)
+{
+	while (*dest = *source)
+	{
+		if (*dest == '\0')
+			break;
+
+		source++;
+		dest++;
+
+	}
+	return dest;
+}
+
+int stringcompare(char * dest, const char* source)
+{
+	while (*dest == *source)
+	{
+		if (*dest == '\0')
+			break;
+
+		dest++;
+		source++;
+	}
+
+	if ((*dest - *source) > 0)
+
+		return 1;
+
+	else
+
+		return -1;
+}
+
+char* stringreverse(char *str)
+{
+	char *ptr1, *ptr2, temp;
+	for (ptr1 = str, ptr2 = str + stringlength(str) - 1; ptr1 < ptr2; ptr1++, ptr2--)
+	{
+		temp = *ptr1;
+		*ptr1 = *ptr2;
+		*ptr2 = temp;
 	}
 	return str;
 }
+
 
 int main()
 {
@@ -87,7 +111,7 @@ int main()
 			printf("The string is copied  %s,%s\n", temp, string2);
 			break;
 		case 4:
-			result = stringcomp(string1, string2);
+			result = stringcompare(string1, string2);
 			if (result <= -1)
 			{
 				printf("first string is lexographically less than the second\n");

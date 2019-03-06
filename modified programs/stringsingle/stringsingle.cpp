@@ -55,7 +55,7 @@ char *stringreverse(char *str)
 int main()
 {
 	char string1[25], string2[25];
-	int operation = 0,result;
+	int operation = 0, result;
 	printf("Enter string1: ");
 	gets_s(string1);
 	printf("\nEnter string2: ");
@@ -64,15 +64,19 @@ int main()
 	printf(" 2.concatenation of strings\n 3.copying a string\n 4.comparison of strings\n 5.Reverse a string\n");
 	scanf_s("%d", &operation);
 	char temp[40];
-	while (operation <= 5 && operation != 0)
+	if (operation <= 5 && operation != 0)
 	{
 		switch (operation)
 		{
 
 		case 1:
+		{
 			printf("length of first string is %d\n", stringlength(string1));
 			printf("length of second string is %d\n", stringlength(string2));
 			break;
+
+		}
+			
 		case 2:
 			stringconcat(string1, string2);
 			printf("The concatenated string is = %s\n", string1);
@@ -104,8 +108,9 @@ int main()
 
 		}
 		getchar();
-		printf("Select an operation to be performed: ");
-		scanf_s("%d", &operation);
-		printf("\n");
+		getchar();
+		//printf("Select an operation to be performed: ");
+		//scanf_s("%d", &operation);
+		//printf("\n");
 	}
 }

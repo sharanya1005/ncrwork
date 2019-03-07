@@ -1,3 +1,17 @@
+/* test cases that are passed are
+testcase 1: abcd-i
+testcase 2: abc2-9
+test case 3: ABC-Fg-h
+test case 4: abc---y
+test case 5: abc-7
+test case 6: ABC-8
+test case 7: 7-A
+test case 8: 4-a
+
+didnt satisfy
+test case: A-a
+test case: -a-z */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string>

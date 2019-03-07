@@ -1,3 +1,12 @@
+/*this program satisfies few test cases
+test case1: for integer with multiple brackets i.e., single digit
+test case 2: with no opening bracket and only closing bracket
+test case 3: with opening bracket and no closing bracket
+didnt satisfy
+test case 4: for multiple digits
+test case 5: not valid for float type of data*/
+
+
 #include<string>
 #include<stack>
 #include<iostream>
@@ -13,11 +22,13 @@ bool balancing_paranthesis(string input)//to check in the input string entered w
 	stack<char> sta;
 
 	char ch;
+	int countforbraces = 0;
 
 	for (int i = 0; i < input.length(); i++)
 	{
 		if (input[i] == '(' || input[i] == '[' || input[i] == '{')//if any opening bracket encounters
 		{
+			countforbraces++;
 			sta.push(input[i]);//push them on to the stack
 			continue;//continue
 		}
@@ -26,7 +37,11 @@ bool balancing_paranthesis(string input)//to check in the input string entered w
 
 		switch (input[i])// to check for the closing brackets
 		{
-		case ')':       //if this is encountered then store the top element on stack in ch and pop that element if the 
+		case ')':    //if this is encountered then store the top element on stack in ch and pop that element if the 
+			if (countforbraces == 0)
+				return false;
+			else
+				countforbraces--;
 			ch = sta.top();  //element stored is the opening bracket of other type then return 0 
 			sta.pop();       //otherwise break from this case
 			if (ch == '{' || ch == '[')
@@ -34,6 +49,10 @@ bool balancing_paranthesis(string input)//to check in the input string entered w
 			break;
 
 		case '}':
+			if (countforbraces == 0)
+				return false;
+			else
+				countforbraces--;
 			ch = sta.top();
 			sta.pop();
 			if (ch == '(' || ch == '[')
@@ -41,6 +60,10 @@ bool balancing_paranthesis(string input)//to check in the input string entered w
 			break;
 
 		case ']':
+			if (countforbraces == 0)
+				return false;
+			else
+				countforbraces--;
 			ch = sta.top();
 			sta.pop();
 			if (ch == '(' || ch == '{')

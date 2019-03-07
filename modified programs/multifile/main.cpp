@@ -3,10 +3,10 @@
 #include<iostream>
 using namespace std;
 
-int addition(int, int);
-int subtraction(int, int);
-long int multiplication(long int, long int);
-float division(int, int);
+double addition(double, double);
+double subtraction(double , double);
+double multiplication(double, double);
+double division(double, double);
 
 bool balancing_paranthesis(string input)//to check in the input string entered whether paranthesis are balanced or not
 {
@@ -22,8 +22,8 @@ bool balancing_paranthesis(string input)//to check in the input string entered w
 			continue;//continue
 		}
 
-		if (sta.empty())///if the stack is empty return 1
-			return true;
+		//if (sta.empty())///if the stack is empty return 1
+			//return true;
 
 		switch (input[i])// to check for the closing brackets
 		{
@@ -74,7 +74,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				long int result = multiplication(right_operand, left_operand);
+				double result = multiplication(right_operand, left_operand);
 				st.push(result);
 			}
 			if (str[i] == '/')
@@ -83,7 +83,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				float result = division(right_operand, left_operand);
+				double result = division(right_operand, left_operand);
 				st.push(result);
 			}
 			if (str[i] == '+')
@@ -92,7 +92,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				int result = addition(right_operand, left_operand);
+				double result = addition(right_operand, left_operand);
 				st.push(result);
 			}
 			if (str[i] == '-')
@@ -101,7 +101,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				int str = subtraction(right_operand, left_operand);
+				double str = subtraction(right_operand, left_operand);
 				st.push(str);
 			}
 		}
@@ -147,7 +147,7 @@ int main()
 	}
 	else
 	{
-		cout << "The paranthesis are balanced" << endl;
+		cout << "Brackets are balanced in the given string" << endl;
 
 		int len = input.length();
 		char ch;
@@ -157,7 +157,7 @@ int main()
 			ch = input[i];
 			if (ch >= '0' && ch <= '9')
 			{
-				postfix_string += input[i];
+				postfix_string += ch;
 			}
 			else
 				if (inp.empty())
@@ -203,7 +203,7 @@ int main()
 
 					}
 					else
-						if (precedence(ch) == 1)
+						if (precedence(ch) == -2)
 						{
 							inp.push(ch);
 						}

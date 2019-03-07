@@ -8,11 +8,11 @@ int expand_string(char input_str[], char output_str[]);
 
 int checking_range(char ch1, char ch2)
 {
-	if ((ch1 >= 'a'  && ch1 <= 'z') && (ch1 <= ch2 && ch2 <= 'z'))//condition to check if ch1 and ch2 are lower case letters
+	if ((ch1 >= 'a' && ch1 <= 'z') && (ch1 <= ch2 && ch2 <= 'z'))//condition to check if ch1 and ch2 are lower case letters
 		return 1;
-	else if ((ch1 >= 'A'  && ch1 <= 'Z') && (ch1 <= ch2 && ch2 <= 'Z'))//condition to check if ch1 and ch2 are upper case letters
+	else if ((ch1 >= 'A' && ch1 <= 'Z') && (ch1 <= ch2 && ch2 <= 'Z'))//condition to check if ch1 and ch2 are upper case letters
 		return 1;
-	else if ((ch1 >= '0'  && ch1 <= '9') && (ch1 <= ch2 && ch2 <= '9'))//condition to check if ch1 and ch2 are numbers
+	else if ((ch1 >= '0' && ch1 <= '9') && (ch1 <= ch2 && ch2 <= '9'))//condition to check if ch1 and ch2 are numbers
 		return 1;
 	else
 		return 0; //if the entered is not a lower case or upper case or digit

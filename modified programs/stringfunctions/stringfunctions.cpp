@@ -77,7 +77,7 @@ char* stringreverse(char *str)//function to reverse a string
 int main()
 {
 	int operation, result;
-	char temp1[50] = "";
+	char string3[50] = "";
 	char *temp;
 	char *string1;
 	char *string2;
@@ -90,7 +90,6 @@ int main()
 	printf("Enter string2: ");
 	gets_s(string2, 24);
 	temp = string1;
-	stringcopy(temp, string1);
 	printf("Select an operation to be performed.\n 1.Find length of a given string\n");
 	printf(" 2.concatenation of strings\n 3.copying a string\n 4.comparison of strings\n 5.Reverse a string\n");
 	scanf_s("%d", &operation);
@@ -118,8 +117,8 @@ int main()
 
 		case 3:
 		{
-			stringcopy(temp1, string2);
-			printf("Copied string is :%s\n", temp1);
+			stringcopy(string3, string2);
+			printf("Copied string is :%s\n", string3);
 			break;
 		}
 		case 4:
@@ -134,7 +133,7 @@ int main()
 		case 5:
 		{
 
-			printf("Reversed string is %s", stringreverse(temp));
+			printf("Reversed string is %s\n", stringreverse(temp));
 			break;
 
 		}

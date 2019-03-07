@@ -3,10 +3,10 @@
 #include<iostream>
 using namespace std;
 
-int addition(int, int);
-int subtraction(int, int);
-long int multiplication(long int, long int);
-float division(int, int);
+double addition(double, double);
+double subtraction(double, double);
+double multiplication(double, double);
+double division(double, double);
 
 bool balancing_paranthesis(string input)//to check in the input string entered whether paranthesis are balanced or not
 {

@@ -22,8 +22,7 @@ bool balancing_paranthesis(string input)//to check in the input string entered w
 			continue;//continue
 		}
 
-		//if (sta.empty())///if the stack is empty return 1
-			//return true;
+		
 
 		switch (input[i])// to check for the closing brackets
 		{
@@ -141,7 +140,7 @@ int main()
 
 	if (!balancing_paranthesis(input))
 	{
-		cout << "The data entered is invalid" << endl;
+		cout << "The data entered is invalid, paranthesis are not balanced" << endl;
 		getchar();
 		return 0;
 	}

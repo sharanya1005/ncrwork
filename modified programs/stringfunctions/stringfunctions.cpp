@@ -90,6 +90,7 @@ int main()
 	printf("Enter string2: ");
 	gets_s(string2, 24);
 	temp = string1;
+	stringcopy(temp, string1);
 	printf("Select an operation to be performed.\n 1.Find length of a given string\n");
 	printf(" 2.concatenation of strings\n 3.copying a string\n 4.comparison of strings\n 5.Reverse a string\n");
 	scanf_s("%d", &operation);
@@ -125,9 +126,9 @@ int main()
 		{
 			result = stringcompare(string1, string2);
 			if (result == 1)
-				printf("Strings are equal\n");
+				printf("Strings are  not equal\n");
 			else
-				printf("Strings are not equal\n");
+				printf("Strings are  equal\n");
 			break;
 		}
 		case 5:

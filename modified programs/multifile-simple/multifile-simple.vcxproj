@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5E1F71F-E887-495C-B0FD-C960ACD8B61B}</ProjectGuid>
-    <RootNamespace>multifile</RootNamespace>
+    <ProjectGuid>{7A1C5935-5E78-4867-900E-AA108D611040}</ProjectGuid>
+    <RootNamespace>multifilesimple</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -110,7 +110,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\multifile\addition.cpp" />
+    <ClCompile Include="..\multifile\division.cpp" />
+    <ClCompile Include="..\multifile\multiplication.cpp" />
+    <ClCompile Include="..\multifile\subtraction.cpp" />
+    <ClCompile Include="multifile.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

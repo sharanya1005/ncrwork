@@ -3,10 +3,10 @@
 #include<iostream>
 using namespace std;
 
-int addition(int, int);
-int subtraction(int, int);
-long int multiplication(long int, long int);
-float division(int, int);
+double addition(double, double);
+double subtraction(double, double);
+double multiplication(double, double);
+double division(double, double);
 
 bool balancing_paranthesis(string input)//to check in the input string entered whether paranthesis are balanced or not
 {
@@ -74,7 +74,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				long int result = multiplication(right_operand, left_operand);
+				double result = multiplication(right_operand, left_operand);
 				st.push(result);
 			}
 			if (str[i] == '/')
@@ -83,7 +83,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				float result = division(right_operand, left_operand);
+				double result = division(right_operand, left_operand);
 				st.push(result);
 			}
 			if (str[i] == '+')
@@ -92,7 +92,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				int result = addition(right_operand, left_operand);
+				double result = addition(right_operand, left_operand);
 				st.push(result);
 			}
 			if (str[i] == '-')
@@ -101,7 +101,7 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				int str = subtraction(right_operand, left_operand);
+				double str = subtraction(right_operand, left_operand);
 				st.push(str);
 			}
 		}
@@ -114,21 +114,14 @@ int postfixevaluation(string str)
 
 int precedence(char ch)
 {
-	if (ch == ')')
-		return 5;
-	else if (ch == ']')
-		return 4;
-	else if (ch == '}')
-		return 3;
+	if (ch == '*' || ch == '/')
+		return 2;
+
+	else if (ch == '+' || ch == '-')
+		return 1;
+
 	else
-		if (ch == '*' || ch == '/')
-			return 2;
-
-		else if (ch == '+' || ch == '-')
-			return 1;
-
-		else
-			return -2;
+		return -2;
 }
 
 
@@ -147,93 +140,104 @@ int main()
 	}
 	else
 	{
-		cout << "The paranthesis are balanced" << endl;
 
 		int len = input.length();
 		char ch;
 
 		for (int i = 0; i < len; i++)
 		{
-			ch = input[i];
-			if (ch >= '0' && ch <= '9')
+			if (isdigit(input[i]))
 			{
 				postfix_string += input[i];
 			}
 			else
-				if (inp.empty())
+				if (input[i] == '(' || input[i] == '{' || input[i] == ' [')
 				{
-					inp.push(ch);
-					ch = inp.top();
+					inp.push(input[i]);
 				}
 				else
-				{
-					if (precedence(ch) > precedence(inp.top()))
+					if (input[i] == ')')
 					{
-						if (precedence(ch) == 5)
+						while (!inp.empty() && inp.top() != '(')
 						{
-							while (inp.top() != '(')
-							{
-								postfix_string += inp.top();
-								inp.pop();
-							}
+							ch = inp.top();
 							inp.pop();
+							postfix_string += ch;
 						}
-						else
-							if (precedence(ch) == 4)
-							{
-								while (inp.top() != '[')
-								{
-									postfix_string += inp.top();
-									inp.pop();
-								}
-								inp.pop();
-							}
-							else
-								if (precedence(ch) == 3)
-								{
-									while (inp.top() != '{')
-									{
-										postfix_string += inp.top();
-										inp.pop();
-									}
-									inp.pop();
-								}
-								else
-									inp.push(ch);
-
+						if (inp.top() == '(')
+						{
+							ch = inp.top();
+							inp.top();
+						}
 					}
 					else
-						if (precedence(ch) == 1)
+					{
+						while (!inp.empty() && precedence(input[i]) <= precedence(inp.top()))
 						{
-							inp.push(ch);
+							ch = inp.top();
+							inp.pop();
+							postfix_string += ch;
 						}
-						else
-						{
-							while (!inp.empty())
-							{
-								if (inp.top() != '(' && inp.top() != '[' && inp.top() != '{')
-								{
-									postfix_string += inp.top();
-									inp.pop();
-								}
-								else
-									break;
-							}
-							inp.push(ch);
-						}
-				}
+						inp.push(input[i]);
+					}
+
 		}
-
-
 		while (!inp.empty())
 		{
-			postfix_string += inp.top();
+			ch = inp.top();
 			inp.pop();
+			postfix_string += ch;
 		}
 
-
-		postfixevaluation(postfix_string);
+		for (int i = 0; i < len; i++)
+		{
+			if (postfix_string[i] == '(')
+			{
+				continue;
+			}
+			postfix_value += postfix_string[i];
+		}
+		postfixevaluation(postfix_value);
 	}
 	getchar();
 	return 0;
+
+}
+
+
+
+
+extern double addition(double operand1, double operand2)
+{
+	double result;
+	result = operand1 + operand2;
+	return result;
+}
+
+
+
+extern double subtraction(double operand1, double operand2)
+{
+	double result;
+	result = operand1 - operand2;
+	return result;
+}
+
+
+
+
+extern double multiplication(double operand1, double operand2)
+{
+	double result;
+	result = operand1 * operand2;
+	return result;
+}
+
+
+
+extern double division(double operand1, double operand2)
+{
+	double result;
+	result = operand1 / operand2;
+	return result;
 }

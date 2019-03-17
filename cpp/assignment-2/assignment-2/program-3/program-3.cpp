@@ -1,3 +1,8 @@
+/* class named Employee with data members empno, name, & salary and
+appropriate member functions for setting and reading the data, constructors and
+destructor. Create an array of 5 Employee objects, populate it with data by
+overloading >> operator */
+
 #include <iostream>
 #include<string>
 using namespace std;

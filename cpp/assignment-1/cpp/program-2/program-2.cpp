@@ -26,8 +26,9 @@ public:
 	void set_data(const char *sname, int m1, int m2, int m3)//function which takes values to the object created
 	{
 		len = strlen(sname);
+		//s1.studentname = new char[strlen(sname) + 1];
 		s1.studentname = (char *)malloc((len + 1) * sizeof(char));
-		strcpy(s1.studentname, sname);
+		strcpy_s(s1.studentname, sizeof(sname), sname);
 		s1.sub1 = m1;
 		s1.sub2 = m2;
 		s1.sub3 = m3;

@@ -1,10 +1,11 @@
-﻿﻿
+﻿/* program to swap two numbers either using swap by value or swap by reference*/
+
 #include<iostream>
 using namespace std;
 class change
 {
 public:
-	int swap_value(int a, int b)
+	int swap_value(int a, int b)//functionfor swap by value
 	{
 		a = a + b;
 		b = a - b;
@@ -14,7 +15,7 @@ public:
 		cout << "b = " << b << endl;
 		return 0;
 	}
-	int swap_reference(int &a, int &b)
+	int swap_reference(int &a, int &b)//function for swap by reference
 	{
 		a = a + b;
 		b = a - b;
@@ -29,19 +30,19 @@ int main()
 {
 	int inp, a, b;
 	change s1;
-	cout << "a = ";
+	cout << "First operand a = ";
 	cin >> a;
-	cout << "b = ";
+	cout << "Second operand b = ";
 	cin >> b;
 	cout << "Enter a number to choose the method: " << endl;
 	cin >> inp;
 
 	switch (inp)
 	{
-	case 0:
+	case 1:
 		s1.swap_value(a, b);
 		break;
-	case 1:
+	case 2:
 		s1.swap_reference(a, b);
 		break;
 	default:

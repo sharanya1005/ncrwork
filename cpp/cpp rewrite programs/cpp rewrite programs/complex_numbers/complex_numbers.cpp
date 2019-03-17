@@ -1,4 +1,4 @@
-﻿/* program to add and multiply two complex numbers*/
+/* program to add and multiply two complex numbers*/
 
 #include<iostream>
 using namespace std;
@@ -29,7 +29,7 @@ public:
 	}
 	friend complex add_complex(complex &c1, complex &c2);
 	friend complex mul_complex(complex &c1, complex &c2);
-
+	
 };
 complex add_complex(complex &c1, complex &c2)//addition of two reference variablesof class complex 
 {
@@ -55,21 +55,21 @@ complex mul_complex(complex &c1, complex &c2)//multiplication of two reference v
 int main()
 {
 	int operation;
-	complex c1, c2, c3;
+	complex c1, c2,c3;
 	c1.get_data();
 	c2.get_data();
-	cout << "choose the operation you want to perform: 1. addition\n 2.multiplication\n";
-	cin >> operation;
-
-	switch (operation)
-	{
-	case 1:
-		c3 = add_complex(c1, c2);
-		break;
-	case 2:
-		c3 = mul_complex(c1, c2);
-		break;
-	default:
-		cout << "Enter a valid input" << endl;
-	}
+		cout << "choose the operation you want to perform: 1. addition\n 2.multiplication\n";
+		cin >> operation;
+		
+		switch (operation)
+		{
+		case 1:
+			c3 = add_complex( c1, c2);
+			break;
+		case 2:
+			c3 =  mul_complex(c1,c2);
+			break;
+		default:
+			cout << "Enter a valid input" << endl;
+		}
 }

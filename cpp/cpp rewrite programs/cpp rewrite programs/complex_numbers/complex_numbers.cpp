@@ -29,9 +29,8 @@ public:
 	}
 	friend complex add_complex(complex &c1, complex &c2);
 	friend complex mul_complex(complex &c1, complex &c2);
-	
 };
-complex add_complex(complex &c1, complex &c2)//addition of two reference variablesof class complex 
+complex add_complex(complex &c1, complex &c2)//addition of two reference variables of class complex 
 {
 	complex c3;
 	c3.real = c1.real + c2.real;
@@ -54,11 +53,31 @@ complex mul_complex(complex &c1, complex &c2)//multiplication of two reference v
 
 int main()
 {
-	int operation;
-	complex c1, c2,c3;
+	int operation,construct,real,imag;
+	complex c1, c2(real),c3(real,imag),c4(complex);
 	c1.get_data();
 	c2.get_data();
-		cout << "choose the operation you want to perform: 1. addition\n 2.multiplication\n";
+	cout << "choose the constructor which you want to select. 1.default constructor\n 2. single parameter passing\n 3. parameter passing constructor\n 4. copy constructor\n";
+	cin >> construct;
+	switch (construct)
+	{
+	case 1: 
+		c1;
+		break;
+	case 2:
+		c2;
+		break;
+	case 3:
+		c3;
+		break;
+	case 4:
+		c4;
+		break;
+	default:
+		cout << "enter valid input" << endl;
+
+	}
+	cout << "choose the operation you want to perform: 1. addition\n 2.multiplication\n";
 		cin >> operation;
 		
 		switch (operation)

@@ -1,32 +1,41 @@
+/* demonstrate the different types of access specifiers*/
+
 #include <iostream>
 using namespace std;
 class First
 {
-	int priv_a = 10;
-protected:
-	int prot_a;
-public:
-	int pub_a;
-	void get_elem()
+	private://it is fine even if we donot mention private here, coz by default it will be private
+		int private_var = 10;
+	protected:
+		int protected_var;
+	public:
+		int public_var;
+
+	void get_element()
 	{
-		cout << "enter the protected element\n";
-		cin >> prot_a;
-		cout << "enter the public element\n";
-		cin >> pub_a;
+		cout << "Enter the private element: \n";
+		cin >> private_var;
+		cout << "Enter the protected element: \n";
+		cin >> protected_var;
+		cout << "Enter the public element: \n";
+		cin >> public_var;
 	}
+
 	void display_First()
 	{
-		//cout << "private variable" << priv_a << endl;
-		cout << "protected variable" << prot_a << endl;
-		cout << "public variable" << pub_a << endl;
+		cout << "Private variable is: " << private_var << endl;
+		cout << "Protected variable is: " << protected_var << endl;
+		cout << "Public variable is: " << public_var << endl;
 	}
 };
+
 class Second :private First
 {
 public:
-	void get_sdata()
+	//protected_var and public_var will become the private members of class first and private_var remains private
+	void get_seconddata()
 	{
-		get_elem();
+		get_element();
 	}
 	void display_Second()
 	{
@@ -35,10 +44,11 @@ public:
 };
 class Third :protected First
 {
+	//protected_var and public_var will become the protected members of class first
 public:
-	void get_tdata()
+	void get_thirddata()
 	{
-		get_elem();
+		get_element();
 	}
 	void display_Third()
 	{
@@ -47,10 +57,11 @@ public:
 };
 class Fourth :public First
 {
+	//protected_var will become protected and public_var will be public
 public:
-	void get_fdata()
+	void get_fourthdata()
 	{
-		get_elem();
+		get_element();
 	}
 	void display_Fourth()
 	{
@@ -59,25 +70,29 @@ public:
 };
 int main()
 {
-	First fr;
-	fr.get_elem();
-	fr.display_First();
-	fr.pub_a = 12;
-	fr.display_First();
+	First fir;
+	fir.get_element();
+	fir.display_First();
+	//fir.private_var = 33; this is inaccessible as it is private
+	//fir.protected_var = 44; this is also inaccessible
+	fir.public_var = 12;
+	fir.display_First();
+
 	Second sd;
-	//sd.get_elem(); won't owrk as get_elem is inherited in private mode
-	sd.get_sdata();
+	//sd.get_element(); won't work as get_element is inherited in private mode
+	sd.get_seconddata();
 	sd.display_Second();
+
 	Third th;
-	//th.get_elem(); protected mode can be accessed only through member functions
-	th.get_tdata();
+	//th.get_element(); protected mode can be accessed only through member functions
+	th.get_thirddata();
 	th.display_Third();
+
 	Fourth four;
-	four.get_fdata();
+	four.get_fourthdata();
 	four.display_Fourth();
-	four.pub_a = 14;
+	four.public_var = 14;
 	four.display_Fourth();
-	cout << "waiting to enter a key to exit program" << endl;
 	getchar();
 	return 0;
 }

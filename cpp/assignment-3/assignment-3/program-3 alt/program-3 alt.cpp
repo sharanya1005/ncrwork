@@ -1,21 +1,17 @@
-/*here shape is a base class. triangle, square and rectangle are the derived classes. 
-Demonstrate the use of virtual function by including display_area ( ) as a virtual function*/
+/*here shape is a base class. triangle, square and rectangle are the derived classes.
+Demonstrate the use of pure virtual function by including display_area ( ) as a pure virtual function*/
 
 #include <iostream>
 using namespace std;
 class Shape
 {
-	
+
 public:
-	 virtual void get_dimension()
-	{
-		cout << "Dimension" << endl;
-	}
-	virtual void display_area()
-	{
-		cout << "Area" << endl;
-	}
+	virtual void get_dimension() = 0;
 	
+	virtual void display_area() = 0;
+	
+
 };
 class Triangle :public Shape
 {
@@ -58,27 +54,23 @@ public:
 };
 int main()
 {
-	Shape *sobj;
-
 	Triangle tobj;
 	Square sqobj;
 	Rectangle robj;
 
-	sobj = &tobj;
-
 	cout << "Enter the base and height of triangle: " << endl;
-	sobj->get_dimension();
-	sobj->display_area();
+	tobj.get_dimension();
+	tobj.display_area();
 
-	sobj = &sqobj;
+	
 	cout << "Enter the side of a square: " << endl;
-	sobj->get_dimension();
-	sobj->display_area();
+	sqobj.get_dimension();
+	sqobj.display_area();
 
-	sobj = &robj;
+	
 	cout << "Enter the length and breadth of a rectangle: " << endl;
-	sobj->get_dimension();
-	sobj->display_area();
+	robj.get_dimension();
+	robj.display_area();
 	getchar();
 	return 0;
 }

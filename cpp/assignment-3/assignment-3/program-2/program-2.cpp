@@ -5,6 +5,7 @@ template <class T>
 class Stack
 {
 	T sta[SIZE];
+	//T *s;
 	int top;
 public:
 	Stack()
@@ -14,23 +15,33 @@ public:
 	void push(T element)
 	{
 		if (top == (SIZE - 1))
-			cout << "Overflow\n";
+			cout << "Stack is full: Overflow\n";
 		else
 		{
 			sta[++top] = element;
+			cout << "An element is pushed on to the stack"<<endl;
 		}
 	}
 	T pop()
 	{
 		if (top == -1)
 		{
-			cout << "Underflow\n"; return 0;
+			cout << "Stack is empty: Underflow\n"; 
+			return 0;
 		}
 		else
 		{
+			cout << "An element " << top << " is popped out from the stack " << endl;
 			return sta[top--];
+			
 		}
 	}
+	/*T display()
+	{
+		for (int count = 0; count <= T.top;count++)
+			cout << T.s[count] << endl;
+	}*/
+
 };
 class Complex
 {
@@ -58,17 +69,21 @@ int main()
 	Complex c1, c2(2), c3(2, 3);
 	s_int.push(2);
 	s_int.push(3);
-	int op1 = s_int.pop();
-	cout << op1;
+	s_int.pop();
+	//int op1 = s_int.pop();
+	//cout << op1;
 	s_float.push(5.0);
 	s_float.push(6.0);
-	float op2 = s_float.pop();
-	cout << op2;
+	//float op2 = s_float.pop();
+	//cout << op2;
+	s_float.pop();
 	s_Comp1.push(c1);
 	s_Comp2.push(c2);
 	s_Comp3.push(c3);
-	s_Comp3.pop();
 	s_Comp2.pop();
+	s_Comp3.pop();
+	//s_int.display();
+	//s_float.display();
 	getchar();
 	return 0;
 }

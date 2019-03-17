@@ -11,11 +11,7 @@ public:
 		sptr = NULL;
 		len = 0;
 	}
-	/*String(const String &s)
-	{
-		len = s.len;
-		strcpy(sptr, s.sptr);
-	}*/
+	
 	~String()
 	{
 		if (sptr != NULL)
@@ -57,9 +53,9 @@ ostream& operator<<(ostream& cout, String s)
 int main()
 {
 	String s1, s4, s3(s4);
-	cout << "enter the contents of the string s1" << endl;
+	cout << "enter the contents of the string s1: " << endl;
 	cin >> s1;
-	cout << "enter the contents of string s4" << endl;
+	cout << "enter the contents of string s4: " << endl;
 	cin >> s4;
 	cout << s1;
 	cout << s3;

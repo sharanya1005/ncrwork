@@ -2,13 +2,13 @@
 
 #include <iostream>
 using namespace std;
-#define MAX_RELIGION 20
 
 class Person
 {
 protected:
 	int age;
 	char *name;
+
 public:
 	  void get_person_data()
 	{
@@ -96,6 +96,7 @@ public:
 		cout << "Salary: " << salary << endl;
 	}
 };
+
 int main()
 {
 	

@@ -101,8 +101,8 @@ int postfixevaluation(string str)
 				st.pop();
 				right_operand = st.top();
 				st.pop();
-				double str = subtraction(right_operand, left_operand);
-				st.push(str);
+				double result = subtraction(right_operand, left_operand);
+				st.push(result);
 			}
 		}
 

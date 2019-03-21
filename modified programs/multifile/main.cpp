@@ -3,8 +3,8 @@ test case1: for integer with multiple brackets i.e., single digit
 test case 2: with no opening bracket and only closing bracket
 test case 3: with opening bracket and no closing bracket
 didnt satisfy
-test case 4: for multiple digits
-test case 5: not valid for float type of data*/
+test case 1: for multiple digits
+test case 2: not valid for float type of data*/
 
 
 #include<string>
@@ -181,6 +181,7 @@ int main()
 			{
 				postfix_string += ch;
 			}
+			
 			else
 				if (inp.empty())
 				{

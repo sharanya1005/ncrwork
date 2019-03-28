@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script src = "jquery-3.3.1.js"></script>
+<script>
+	$(document).ready(function(){
+	$('input[type="checkbox"]').click(function(){
+            if($(this).prop("checked") == true){
+             
+                h.no_p.value=hno.value;
+                street_p.value=street.value;
+                landmark_p.value=landmark.value;
+                city_p.value=city.value;
+                mandal_p.value=mandal.value;
+                state_p.value=state.value;
+                pin_p.value=pin.value;
+            }
+            else{
+                h.no_p.value=" ";
+                street_p.value=" ";
+                landmark_p.value=" ";
+                city_p.value=" ";
+                dist_p.value=" ";
+                state_p.value=" ";
+                pin_p.value=" ";
+                
+            }
+    });
+});
+</script>
+
+
+<h2>Current Address</h2>
+House No./Plot no.<input type = "text" id = "h.no"/><br/>
+Street No./Name<input type = "text" id = "street"/><br/>
+Landmark<input type = "text" id = "landmark" /><br/>
+Mandal<select id = "mandal"><option value = " " ></option>
+		<option value = "Tarnaka" >Tarnaka</option>
+		<option value = "Habsiguda" >Habsiguda</option>
+		<option value = "Panjagutta" >Panjagutta</option>
+		<option value = "Somajiguda" >Somajiguda</option>
+	</select><br/>
+City<input type = "text" id = "city" /><br/>
+State<input type = "text" id = "state"/><br/>
+PinCode<input type = "number" id = "pin"/><br/>
+
+<input type = "checkbox" id = "chkbx">Same as current address
+
+<h2>Permanent Address</h2>
+House No./Plot no.<input type = "text" id = "h.no_p"/><br/>
+Street No./Name<input type = "text" id = "street_p"/><br/>
+Landmark<input type = "text" id = "landmark_p" /><br/>
+Mandal<select id = "mandal_p"><option value = " " ></option>
+		<option value = "Tarnaka" >Tarnaka</option>
+		<option value = "Habsiguda" >Habsiguda</option>
+		<option value = "Panjagutta" >Panjagutta</option>
+		<option value = "Somajiguda" >Somajiguda</option>
+	</select><br/>
+City<input type = "text" id = "city_p" /><br/>
+State<input type = "text" id = "state_p"/><br/>
+PinCode<input type = "number" id = "pin_p"/><br/>
+</body>
+</html>
+   
+
+   
